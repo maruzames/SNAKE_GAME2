@@ -58,7 +58,7 @@ class Game:
         s2 = square(20, 20, 'white')
         s3 = square(20, 20, 'white')
 
-        f = square(random.randint(grid_size,( width/grid_size))*grid_size - grid_size, random.randint(grid_size, (heigh/grid_size))*grid_size - grid_size, 'purple')
+        f = square(random.randint(grid_size,(width/grid_size))*grid_size - grid_size, random.randint(grid_size, (heigh/grid_size))*grid_size - grid_size, 'purple')
         
         self.snake = [s, s1, s2, s3]
         self.food = [f]
