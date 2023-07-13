@@ -3,6 +3,10 @@ Criação do Jogo da Cobrinha,
 
 USANDO a biblioteca TKINTER
 
+	from tkinter import Tk, Canvas
+	from tkinter.messagebox import showinfo
+
+
 1. configurações iniciais
 
 	cores, tamanho de tela, velocidade de jogo
