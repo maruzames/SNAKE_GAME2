@@ -1,10 +1,10 @@
 
-from tkinter import *
+from tkinter import Tk, Canvas
 from tkinter.messagebox import showinfo
 import random
 
 width = 800
-heigh = 600
+height = 600
 grid_size = 20
 
 
@@ -33,7 +33,7 @@ class square:
     def update(self):
         if(self.x>0 and self.x<width-grid_size):
             self.x += self.velx
-        if(self.y>0 and self.y<heigh-grid_size):
+        if(self.y>0 and self.y<height-grid_size):
             self.y += self.vely
         if(self.x==0 and self.velx>0):
             self.x += self.velx
@@ -41,7 +41,7 @@ class square:
             self.x += self.velx
         if(self.y==0 and self.vely >0):
             self.y += self.vely
-        if(self.y==heigh-grid_size and self.vely <0):
+        if(self.y==height-grid_size and self.vely <0):
             self.y += self.vely
 
 
@@ -50,7 +50,7 @@ class Game:
 
     def __init__(self):
         self.window = Tk()
-        self.canvas = Canvas(self.window, bg='black', width=width, heigh=heigh)
+        self.canvas = Canvas(self.window, bg='black', width=width, height=height) 
         self.canvas.pack()
 
         s = square(20, 20, 'white')
@@ -58,7 +58,7 @@ class Game:
         s2 = square(20, 20, 'white')
         s3 = square(20, 20, 'white')
 
-        f = square(random.randint(grid_size,(width/grid_size))*grid_size - grid_size, random.randint(grid_size, (heigh/grid_size))*grid_size - grid_size, 'purple')
+        f = square(random.randint(grid_size,int(width/grid_size))*grid_size - grid_size, random.randint(grid_size, int(height/grid_size))*grid_size - grid_size, 'purple')
         
         self.snake = [s, s1, s2, s3]
         self.food = [f]
@@ -97,8 +97,8 @@ class Game:
                 self.snake[i].vely = self.vel[i][1]
 
             if(self.snake[0].pos() == self.food[0].pos()):
-                self.food[0].x = random.randint(grid_size, (width/grid_size))*grid_size-grid_size
-                self.food[0].y = random.randint(grid_size, (heigh/grid_size))*grid_size-grid_size
+                self.food[0].x = random.randint(grid_size, int(width/grid_size))*grid_size-grid_size
+                self.food[0].y = random.randint(grid_size, int(height/grid_size))*grid_size-grid_size
                 self.vel.append([0,0])
                 self.snake.append(square(self.snake[-1].x, self.snake[-1].y, self.snake[0].color))
 
